@@ -10,7 +10,17 @@
 https://movie-api-octacosta.onrender.com/docs
 
 #### Como se usa?
+Para acceder a cada endpoint de la api tiene que utilizar el link base:
+ https://movie-api-octacosta.onrender.com  
+Y aplicar al final del url el punto de informacion que mas le guste:
 
+* /cantidad_filmaciones_mes/{mes}
+* /cantidad_filmaciones_dia/{dia}
+* /score_titulo/{pelicula}
+* /votos_titulo/{pelicula}
+* /get_actor/{actor}
+* /get_director/{director}
+* /recomendacion/{pelicula}
 ## PROCESO
 #### ETL
 
