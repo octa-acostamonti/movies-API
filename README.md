@@ -27,7 +27,19 @@ Luego se continuo con los siguientes procesos:
 * Eliminar las columnas innecesarias
 
 #### API
-Luego de a limpieza de los datos se crearon 6 endpoints para
+
+Para la creacion de la API se utilizo el framework FastAPI y para el deploy Render.
+
+Luego de a limpieza de los datos se crearon 6 endpoints:
+
+* /cantidad_filmaciones_mes/{mes}: Devuelve la cantidad de peliculas que se estrenaron en ese mes historicamente
+* /cantidad_filmaciones_dia/{dia}: Devuelve la cantidad de peliculas que se estrenaron en ese dia historicamente
+* /score_titulo/{pelicula}: Devuelve el año del estreno y de la popularidad de la pelicula ingresada
+* /votos_titulo/{pelicula}: Devuelve la cantidad de votos y el promedio de votos de las peliculas ingresadas.
+* /get_actor/{actor}: Devuelve la cantidad de pelicula, el retorno total y el promedio del actor.
+* /get_director/{director}: Devuelve el retorno total, las peliculas, el año, el retorno por pelicula, presupuesto por pelicula, ganancia de la pelicula ingresada
+
 #### MACHINE LEARNING  
 
+Se genero un arcivo notebook en "EDA" en el que se analizo las distintas vaiables numeicas con respecto a 
 
