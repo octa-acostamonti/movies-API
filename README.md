@@ -27,7 +27,7 @@ Y aplicar al final del url el punto de informacion que mas le guste:
 Comenzamos con dos datasets, "movies_datasets.csv" y "credits.csv". Los mismos estaban anidados con diccionarios o listas de diccionarios con la informacion.
 
 
-[AÑADIR IMAGEN]
+![columna](https://github.com/octa-acostamonti/movies-API/assets/107809099/1f5a0f31-fb04-406f-b753-3d973c427753)
 
 La columnas anidadas fueron desarmadas mediante funciones creadas utilizando la libreria AST para evaluar el verdadero tipo de dato de los valores de la columna.
 Luego se continuo con los siguientes procesos:
@@ -58,20 +58,22 @@ Se genero un archivo notebook denominado "EDA" en el que se analizo las distinta
 Primero se comparo la popularidad con el presupuesto:
 * La hipotesis era que cuanto mas presupuesto una pelicula tenia, mas atraccion generaria y, por tanto, mas popularidad.
 
-[INSERTAR IMAGEN]
+![budget](https://github.com/octa-acostamonti/movies-API/assets/107809099/6e422232-70a8-475f-9b49-8e444548217c)
+
 
 * Como vemos, luego de plotear nos damos cuenta que la hipotesis no era cierta. Hay peliculas de menos presupuesto que son mas populares, mientras que hay algunas que tienen mucho presupuesto y son menos populares que las de menor presupuesto. Hipotesis descartada.
 
 Luego se ploteo la popularidad segun el año:
 * La hipotesis era que cuanto mas nueva la pelicula, mas relevancia tenia y, por tanto, mayor popularidad.
 
-[INSERTAR IMAGEN]
+![años](https://github.com/octa-acostamonti/movies-API/assets/107809099/e9cff610-9e4e-45ec-9b83-03e564e91fd0)
 
 * Como se logra apreciar, desde 1980 en adelante, la popularidad de las peliculas aumento drasticamente, con picos historicos rompuiendose año tras año. Hipotesis adoptada. Se reducira el dataset a peliculas luego de 1980
 
 * Por ultimo, se tomo en consideracion la columna "runtime" que expresa la duracion de peliculas por minuto. La hipotesis era que las duraciones mas similes a las de una pelicula (≈90 minutos) eran las que mas popularidad tenian.
 
-[INSERTAR IMAGEN]
+![runtime](https://github.com/octa-acostamonti/movies-API/assets/107809099/3ce99bc8-715c-42aa-8b5d-a77a76b190ea)
+
 
 * Como se puede notar, las pelicualas entre 30 y 350 minutos som las mas populares. Hipotesis comprobada. Vamos a achicar los datos a los ubicados entre 30 y 350.
 
