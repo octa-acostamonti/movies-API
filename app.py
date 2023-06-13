@@ -117,6 +117,7 @@ A PARTIR DE AQUI EMPIEZA LO RELACIONADO CON EL MODELO DE MACHINE LEARNING DE REC
 """
 
 columnas_combinadas = df_ML["title"] + df_ML["generos"] + df_ML["actores"] + df_ML["overview"]
+columnas_combinadas = columnas_combinadas.fillna('')
 vec = TfidfVectorizer()
 vector_columnas = vec.fit_transform(columnas_combinadas)
 simil = cosine_similarity(vector_columnas)
