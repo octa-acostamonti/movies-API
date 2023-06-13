@@ -1,7 +1,8 @@
 import pandas as pd
 from fastapi import FastAPI
-from datetime import datetime
-
+import difflib
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 ############################
 # IMPORTAMOS LAS LIBRERIAS #
 ############################
@@ -24,6 +25,8 @@ votos_titulos = pd.read_csv("API/ votos_titulos.csv").drop(columns="Unnamed: 0")
 nombre_actor = pd.read_csv("API/ nombre_actor.csv").drop(columns="Unnamed: 0")
 
 nombre_director = pd.read_csv("API/ nombre_director.csv").drop(columns="Unnamed: 0")
+
+df_ML = pd.read_csv("./Datasets/MachineLearning.csv")
 
 @app.get("/")
 def root():
@@ -107,3 +110,40 @@ def director(director: str):
 
     except Exception as e:
         return f"Hubo un error:{e}"
+    
+
+"""
+A PARTIR DE AQUI EMPIEZA LO RELACIONADO CON EL MODELO DE MACHINE LEARNING DE RECOMENDACION DE PELICULAS
+"""
+
+columnas_combinadas = df_ML["title"] + df_ML["generos"] + df_ML["actores"] + df_ML["overview"]
+vec = TfidfVectorizer()
+vector_columnas = vec.fit_transform(columnas_combinadas)
+simil = cosine_similarity(vector_columnas)
+todas_peliculas = df_ML["title"].tolist()
+
+@app.get("/recomendacion/{pelicula}")
+def recomendaciones(pelicula:str):
+    try:
+        encontrar_pelicula = difflib.get_close_matches(pelicula, todas_peliculas)
+        if encontrar_pelicula:
+            pelicula_encontrada = encontrar_pelicula[0]
+            indice_pelicula = df_ML[df_ML.title == pelicula_encontrada].index.values[0]
+            peliculas_similares = list(enumerate(simil[indice_pelicula]))
+            ordenar_peliculas_similares = sorted(
+                peliculas_similares, key=lambda x: x[1], reverse=True
+            )
+            i = 1
+            recomendaciones = []
+            for movie in ordenar_peliculas_similares[:6]:
+                index = movie[0]
+                pelicula_por_indice = df_ML[df_ML.index == index]["title"].values[0]
+                if i < 7:
+                    recomendaciones.append(pelicula_por_indice)
+                    i += 1
+            return {
+                "lista_recomendada": recomendaciones}
+        else:
+            return "No se encontraron coincidencias cercanas para el título de la película proporcionado."
+    except Exception as e:
+        return f"Hubo un error: {e}"
