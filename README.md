@@ -5,7 +5,7 @@
 | Esta es una API que proporciona una variedad de informacion sobre peliculas de un dataset. Desde, cantidad de peliculas por mes y por dia historicamente, la popularidad o cantidad de votos por pelicula y la cantidad de peliculas (entre otra info) sobre actores y directores. Luego se creo un sistema de recomendacion de peliculas usando ML.
  Toda la data fue proporcionada por IDMB. | 
 
-#### Documentacion![runtime](https://github.com/octa-acostamonti/movies-API/assets/107809099/bb7baf79-0e39-4328-a47c-98868c756133)
+#### Documentacion
 
 https://movie-api-octacosta.onrender.com/docs
 
