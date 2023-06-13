@@ -20,11 +20,11 @@ peliculas_dia = pd.read_csv("API/peliculas_dia.csv")
 
 score_titulo = pd.read_csv("API/score_titulo.csv").drop(columns="Unnamed: 0")
 
-votos_titulos = pd.read_csv("API/ votos_titulos.csv").drop(columns="Unnamed: 0")
+votos_titulos = pd.read_csv("API/votos_titulos.csv").drop(columns="Unnamed: 0")
 
-nombre_actor = pd.read_csv("API/ nombre_actor.csv").drop(columns="Unnamed: 0")
+nombre_actor = pd.read_csv("API/nombre_actor.csv").drop(columns="Unnamed: 0")
 
-nombre_director = pd.read_csv("API/ nombre_director.csv").drop(columns="Unnamed: 0")
+nombre_director = pd.read_csv("API/nombre_director.csv").drop(columns="Unnamed: 0")
 
 df_ML = pd.read_csv("./Datasets/MachineLearning.csv")
 
