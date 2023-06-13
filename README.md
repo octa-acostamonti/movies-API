@@ -41,5 +41,32 @@ Luego de a limpieza de los datos se crearon 6 endpoints:
 
 #### MACHINE LEARNING  
 
-Se genero un arcivo notebook en "EDA" en el que se analizo las distintas vaiables numeicas con respecto a 
+Al disponer de la memoria gratuita que ofrece Render, se decidio achicar el dataset tomando en consideracion solo las peliculas mas relevantes. Para eso se decanto con la columna de popularidad para conseguir las peliculas mas "recomendadas" por el publico en general. 
+
+Se genero un archivo notebook denominado "EDA" en el que se analizo las distintas variables numericas con respecto a la popularidad. Esto se hizo con el objetivo de reducir el tamaño del dataset a las peliculas mas relevantes para poder hacer un sistema efectivo de recomendacion
+
+Primero se comparo la popularidad con el presupuesto:
+* La hipotesis era que cuanto mas presupuesto una pelicula tenia, mas atraccion generaria y, por tanto, mas popularidad.
+
+[INSERTAR IMAGEN]
+
+* Como vemos, luego de plotear nos damos cuenta que la hipotesis no era cierta. Hay peliculas de menos presupuesto que son mas populares, mientras que hay algunas que tienen mucho presupuesto y son menos populares que las de menor presupuesto. Hipotesis descartada.
+
+Luego se ploteo la popularidad segun el año:
+* La hipotesis era que cuanto mas nueva la pelicula, mas relevancia tenia y, por tanto, mayor popularidad.
+
+[INSERTAR IMAGEN]
+
+* Como se logra apreciar, desde 1980 en adelante, la popularidad de las peliculas aumento drasticamente, con picos historicos rompuiendose año tras año. Hipotesis adoptada. Se reducira el dataset a peliculas luego de 1980
+
+* Por ultimo, se tomo en consideracion la columna "runtime" que expresa la duracion de peliculas por minuto. La hipotesis era que las duraciones mas similes a las de una pelicula (≈90 minutos) eran las que mas popularidad tenian.
+
+[INSERTAR IMAGEN]
+
+* Como se puede notar, las pelicualas entre 30 y 350 minutos som las mas populares. Hipotesis comprobada. Vamos a achicar los datos a los ubicados entre 30 y 350.
+
+
+Luego de todo este analisis nos quedan aproximadamente 33300 peliculas. Como se planteo en el principio, Render solo permite 512 mb, por lo que esa cantidad de peliculas no podra ser utilizado ya que analizar la similiritud del coseno (un proceso matematica para conseguir la distancia de similitud en una matriz) cuesta muchos recursos. Luego de mucha experimentacion, el punto optimo fue hacer un dataset de 4000 peliculas.
+
+#### ESPERO QUE LES GUSTE
 
