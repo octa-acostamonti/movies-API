@@ -5,9 +5,13 @@
 | Esta es una API que proporciona una variedad de informacion sobre peliculas de un dataset. Desde, cantidad de peliculas por mes y por dia historicamente, la popularidad o cantidad de votos por pelicula y la cantidad de peliculas (entre otra info) sobre actores y directores. Luego se creo un sistema de recomendacion de peliculas usando ML.
  Toda la data fue proporcionada por IDMB. | 
 
-####
+#### Documentacion
 
-# PROCESO
+https://movie-api-octacosta.onrender.com/docs
+
+#### Como se usa?
+
+## PROCESO
 #### ETL
 
 Comenzamos con dos datasets, "movies_datasets.csv" y "credits.csv". Los mismos estaban anidados con diccionarios o listas de diccionarios con la informacion.
@@ -23,7 +27,7 @@ Luego se continuo con los siguientes procesos:
 * Eliminar las columnas innecesarias
 
 #### API
-
+Luego de a limpieza de los datos se crearon 6 endpoints para
 #### MACHINE LEARNING  
 
 
